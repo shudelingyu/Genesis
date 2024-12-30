@@ -50,7 +50,7 @@ class JointControlGUI:
             slider.pack(side=tk.LEFT, padx=5)
             self.sliders.append(slider)
 
-
+            # push test
             value_label = tk.Label(frame, text=f"{slider.get():.2f}", font=("Arial", 12))
             value_label.pack(side=tk.LEFT, padx=5)
             self.value_labels.append(value_label)
