@@ -4,15 +4,18 @@ import torch
 
 import genesis as gs
 
-
 def main():
 
+    print(torch.cuda.is_available())
+    print(torch.cuda.device_count())
+    print(torch.cuda.current_device())
+    
     parser = argparse.ArgumentParser()
     parser.add_argument("-v", "--vis", action="store_true", default=False)
     args = parser.parse_args()
 
     ########################## init ##########################
-    gs.init(backend=gs.cpu)
+    gs.init(backend=gs.gpu)
 
     ########################## create a scene ##########################
 
@@ -23,7 +26,7 @@ def main():
             camera_lookat=(0.0, 0.0, 0.5),
             camera_fov=40,
         ),
-        show_viewer=args.vis,
+        show_viewer=True,
         rigid_options=gs.options.RigidOptions(
             dt=0.01,
             gravity=(0.0, 0.0, -10.0),

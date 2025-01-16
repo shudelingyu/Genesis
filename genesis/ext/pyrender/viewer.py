@@ -16,6 +16,8 @@ import genesis as gs
 
 import sys
 
+import traceback
+
 if sys.platform.startswith("darwin"):
     # Mac OS
     from tkinter import Tk
@@ -551,7 +553,7 @@ class Viewer(pyglet.window.Window):
         """
         if filename is None:
             filename = self._get_save_filename(["mp4"])
-
+        
         self.video_recorder.close()
         shutil.move(self.video_recorder.filename, filename)
 
@@ -988,7 +990,9 @@ class Viewer(pyglet.window.Window):
             filename = filedialog.asksaveasfilename(
                 initialdir=save_dir, title="Select file save location", filetypes=filetypes
             )
-        except Exception:
+        except Exception as e:
+            print("An error occurred while trying to get the save filename:")
+            traceback.print_exc()
             return None
 
         if filename == ():

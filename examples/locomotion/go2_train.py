@@ -4,7 +4,7 @@ import pickle
 import shutil
 
 from go2_env import Go2Env
-from rsl_rl.runners import OnPolicyRunner
+from rsl_rl.runners import OnPolicyRunner # type: ignore
 
 import genesis as gs
 
@@ -138,7 +138,7 @@ def get_cfgs():
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-e", "--exp_name", type=str, default="go2-walking")
-    parser.add_argument("-B", "--num_envs", type=int, default=4096)
+    parser.add_argument("-B", "--num_envs", type=int, default=1024)
     parser.add_argument("--max_iterations", type=int, default=100)
     args = parser.parse_args()
 

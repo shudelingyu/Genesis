@@ -26,7 +26,7 @@ def main():
         rigid_options=gs.options.RigidOptions(
             dt=0.01,
         ),
-        show_viewer=args.vis,
+        show_viewer=True,
     )
 
     ########################## entities ##########################

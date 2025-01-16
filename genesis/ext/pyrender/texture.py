@@ -215,7 +215,6 @@ class Texture(object):
         if self.data_format == GL_FLOAT:
             border_color = np.ones(4).astype(np.float32)
         glTexParameterfv(self.tex_type, GL_TEXTURE_BORDER_COLOR, border_color)
-
         max_aniso = glGetFloat(texture_filter_anisotropic.GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT)
         glTexParameterf(GL_TEXTURE_2D, texture_filter_anisotropic.GL_TEXTURE_MAX_ANISOTROPY_EXT, max_aniso)
 
